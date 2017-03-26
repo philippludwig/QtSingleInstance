@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(qttest C CXX)
+project(qtsingleinstance CXX)
 file(GLOB_RECURSE SRC_FILES ./*.cpp)
 set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 
@@ -21,8 +21,11 @@ find_package(Qt5Core)
 find_package(Qt5Network)
 
 # Target definition
-add_executable(${PROJECT_NAME} ${SRC_FILES})
+add_library(${PROJECT_NAME} singleinstance.cpp)
+add_executable(${PROJECT_NAME}-example ${SRC_FILES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
+set_property(TARGET ${PROJECT_NAME}-example PROPERTY CXX_STANDARD 14)
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Network)
+target_link_libraries(${PROJECT_NAME}-example Qt5::Core Qt5::Network)
 

@@ -21,18 +21,18 @@ utilize Mutexes, pid files or whatever else is suited for your platform.
 ## Running the example
 Run the application once. It should create the server and wait for messages:
 
-    $ ./qttest
+    $ ./qtsingleinstance-examaple
     This is the only instance.
     Waiting for messages...
 
 Now, while this instance is running, switch to another terminal and run it again:
 
-    $ ./qttest
+    $ ./qtsingleinstance-examaple
     Other instance reacted nicely.
 
 The first terminal's output should now look like:
 
-    $ ./qttest
+    $ ./qtsingleinstance-examaple
     This is the only instance.
     Waiting for messages...
     Got a message:  "RESTORE"
